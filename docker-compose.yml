@@ -4,9 +4,11 @@ services:
   telegram-bot-api:
     image: aiogram/telegram-bot-api:latest
     environment:
-      TELEGRAM_API_ID: "<api-id>"
-      TELEGRAM_API_HASH: "<api-hash>"
+      TELEGRAM_API_ID: "2040"
+      TELEGRAM_API_HASH: "b18441a1ff607e10a989891a5462e627"
       TELEGRAM_LOCAL: true
+      TELEGRAM_MAX_WEBHOOK_CONNECTIONS: 1000
+      TELEGRAM_MAX_CONNECTIONS: 1000
     volumes:
       - telegram-bot-api-data:/var/lib/telegram-bot-api
     ports:
@@ -17,7 +19,7 @@ services:
     volumes:
       - telegram-bot-api-data:/var/lib/telegram-bot-api
     ports:
-      - "80:80"
+      - "8088:80"
 
 volumes:
   telegram-bot-api-data:
